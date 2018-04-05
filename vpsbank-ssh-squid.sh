@@ -1,27 +1,31 @@
 #!/bin/bash
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-20s\n' "VPS Manager 2.0.1" ; tput sgr0
 tput setaf 3 ; tput bold ; echo "" ; echo "Este script irá:" ; echo ""
-echo "● ติดตั้ง ปลาหมึก ไห้ทำงานบน พอร์ต squid nas portas 80, 3128, 8080 e 8000" ; echo "  para permitir conexões SSH para este servidor"
-echo "● ตั้งค่าบนพอร์ต o SSH และ Dropbear para rodar nas portas 22 e 143 110 109"
-echo "● Instalar um conjunto de scripts como comandos do sistema para o gerenciamento de usuários" ; tput sgr0
-echo "● ติดตั้ง ชุดของสคริปต์ เป็นคำสั่ง ระบบสำหรับการจัดการผู้ใช้ เย็ดเข้ "
+echo "● ติดตั้ง และ ตั้งค่าพร็อกซี ปลาหมึกไว้ที่ 80, 3128, 8080 e 8000" ; echo "
+echo "● กำหนดค่า OpenSSH เพื่อเรียกใช้พอร์ต 22 กับ 143" กำหนดค่า Dropbear เพื่อเรียกใช้พอร์ต 110" ; tput sgr0
+echo ""
+echo "● ติดตั้ง ชุดของสคริปต์ เป็นคำสั่ง ระบบสำหรับการจัดการผู้ใช้ เย็ดเข้ " ; tput sgr0
 echoecho ""
-tput setaf 3 ; tput bold ; read -n 1 -s -p "Aperte qualquer tecla para continuar..." ; echo "" ; echo "" ; tput sgr0
+tput setaf 3 ; tput bold ; read -n 1 -s -p "Aperte กดปุ่มใดก็ได้เพื่อดำเนินการต่อ..." ; echo "" ; echo "" ; tput sgr0
 tput setaf 2 ; tput bold ; echo "	Termos de Uso" ; tput sgr0
 echo ""
-echo "Ao utilizar o 'VPS Manager 2.0' você concorda com os seguintes termos de uso:"
+echo "Ao เมื่อใช้ 'VPS Manager 2.0' คุณยอมรับข้อกำหนดการใช้งานต่อไปนี้:"
 echo ""
-echo "1. Você pode:"
-echo "a. Instalar e usar o 'VPS Manager 2.0' no(s) seu(s) servidor(es)."
-echo "b. Criar, gerenciar e remover um número ilimitado de usuários através desse conjunto de scripts."
+echo "1.คุณสามารถ:"ติดตั้งและใช้ 'VPS Manager 2.0' 
+echo "2 บนเซิร์ฟเวอร์ของคุณบนเซิร์ฟเวอร์ของคุณ
+echo "3 สร้างจัดการและนำออกผู้ใช้จำนวนไม่จำกัด จำนวนผ่านชุดสคริปต์นี้."
+echo " 
+echo "
+echo "
+
 echo ""
-tput setaf 3 ; tput bold ; read -n 1 -s -p "Aperte qualquer tecla para continuar..." ; echo "" ; echo "" ; tput sgr0
-echo "2. Você não pode:"
-echo "a. Editar, modificar, compartilhar ou redistribuir (gratuitamente ou comercialmente)"
-echo "esse conjunto de scripts sem autorização do desenvolvedor."
-echo "b. Modificar ou editar o conjunto de scripts para fazer você parecer o desenvolvedor dos scripts."
+tput setaf 3 ; tput bold ; read -n 1 -s -p "กดปุ่มใดก็ได้เพื่อดำเนินการต่อ..."" ; echo "" ; echo "" ; tput sgr0
+echo "2.ห้ามดัดแปลง หรือ เอาไป ปรับเปลี่ยน แก้เป็นจุด เพื่อให้คุณมีลักษณะเหมือนนักพัฒนาสคริปต์:"
+echo "3  คุณไม่สามารถ  แก้ไขแก้ไขแชร์หรือจัดแจกจ่ายใหม่ )"
+
+
 echo ""
-echo "3. Você aceita que:"
+echo "3. คุณยอมรับไหม :"
 echo "a. O valor pago por esse conjunto de scripts não inclui garantias ou suporte adicional,"
 echo "porém o usuário poderá, de forma promocional e não obrigatória, por tempo limitado,"
 echo "receber suporte e ajuda para solução de problemas desde que respeite os termos de uso."
