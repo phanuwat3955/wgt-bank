@@ -76,7 +76,7 @@ cd
 # install dropbear
 apt-get -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=109
+sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=110
 DROPBEAR_PORT=110"/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS=" -p 110 -p 109"/g' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
@@ -189,10 +189,10 @@ then
 fi
 echo ""
 tput setaf 7 ; tput setab 4 ; tput bold ; echo "Proxy Squid ติดตั้ง ให้ ใช้งาน ใน พอร์ต: 80, 3128, 8080 e 8000" ; tput sgr0
-tput setaf 7 ; tput setab 4 ; tput bold ; echo "SSH dropbear rodando nas portas 22 e 143,109 110" ; tput sgr0
-tput setaf 7 ; tput setab 4 ; tput bold ; echo "Scripts para gerenciamento de usuário instalados" ; tput sgr0
-tput setaf 7 ; tput setab 4 ; tput bold ; echo "Leia a documentação para evitar dúvidas e problemas!" ; tput sgr0
-tput setaf 7 ; tput setab 4 ; tput bold ; echo "ParaPara ver os comandos disponíveis use o comando: ajuda" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; echo "SSH dropbear ใช้งาน ใน พอร์ต 22 e 143 e 110" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; echo "สคริปต์ จัดการ สำหรับงาน ที่ ตั้ง  usuário instalados" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; echo "อ่าน เอกสาร เพื่อ หลีกเลี่ยง ปัญหา dúvidas e problemas!" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; echo "เรียกดู คำสั่ง ใช้งาน ที่มี ของคุณ : ajuda" ; tput sgr0
 tput setaf 7 ; tput setab 4 ; tput bold ; echo "เสร็จแล้ว ไอ้เหี้ย ไอ้สัส เลว"
 echo ""
 if [[ "$optiondb" = '2' ]]; then
