@@ -19,11 +19,11 @@ echo "deb http://repo.pritunl.com/stable/apt trusty main" > /etc/apt/sources.lis
 apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7F0CEB10
 apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv CF8E292A
 sudo apt-get update
-
 sudo apt-get install python-software-properties pritunl mongodb-org
-
-
-
-
-
 sudo service pritunl start
+sudo service pritunl restart
+
+
+
+
+
