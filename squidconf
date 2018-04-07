@@ -1,13 +1,19 @@
 #!/bin/bash
 cd root
-IP=$(wget -4qO- "http://whatismyip.akamai.com/") 
+
 echo "● # install squid apache2-utils : tput sgr0
 # update
 apt-get update
-sudo apt-get install squid apache2-utils:tput sgr0
-echo "● "SQUID UBUNTU' ติดตั้ง ชุด สคริปต์ แบบใส่ชื่อล็อกใช้งาน ; tput sgr0
+sudo apt-get install squid apache2-utils      :tput sgr0
+echo "● "SQUID' ติดตั้ง ชุด สคริปต์ แบบใส่ชื่อล็อกใช้งาน ; tput sgr0
 
-
+#!/bin/bash
+IP=$(wget -4qO- "http://whatismyip.akamai.com/")
+echo 'SQUID UBUNTU'
+rm -rf /etc/squid/squid.conf
+touch /etc/squid/squid.conf
+echo 'acl ip dstdomain '$IP > /etc/squid/squid.conf
+echo 'acl payload dstdomain -i "/etc/payloads"
 rm -rf /etc/squid/squid.conf touch /etc/squid/squid.conf
 echo 'auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/squid_passwd' > /etc/squid/squid.conf
 echo 'auth_param basic realm proxy 
