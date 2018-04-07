@@ -1,10 +1,13 @@
-#!/bin/bash 
+#!/bin/bash
+cd root
 IP=$(wget -4qO- "http://whatismyip.akamai.com/") 
-# install squid apache2-utils
-# cd update
+echo "● # install squid apache2-utils : tput sgr0
+# update
 apt-get update
-sudo apt-get install squid apache2-utils
-echo 'SQUID UBUNTU' 
+sudo apt-get install squid apache2-utils:tput sgr0
+echo "● "SQUID UBUNTU' ติดตั้ง ชุด สคริปต์ แบบใส่ชื่อล็อกใช้งาน ; tput sgr0
+
+
 rm -rf /etc/squid/squid.conf touch /etc/squid/squid.conf
 echo 'auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/squid_passwd' > /etc/squid/squid.conf
 echo 'auth_param basic realm proxy 
@@ -46,8 +49,8 @@ request_header_access User-Agent allow all
 request_header_access Cookie allow all
 request_header_access All deny all' >> /etc/squid/squid.conf
 
+echo "●'SQUID DEBIAN' ติดตั้ง ชุด สคริปต์ แบบใส่ชื่อล็อกใช้งาน ; tput sgr0
 
-echo 'SQUID DEBIAN'
 rm -rf /etc/squid3/squid.conf touch /etc/squid3/squid.conf
 echo 'auth_param basic program /usr/lib/squid3/basic_ncsa_auth /etc/squid3/squid_passwd > /etc/squid3/squid.conf
 echo 'echo 'auth_param basic realm proxy 
@@ -87,5 +90,8 @@ request_header_access Connection allow all
 request_header_access Proxy-Connection allow all
 request_header_access User-Agent allow all
 request_header_access Cookie allow all
-request_header_access All deny all' >> /etc/squid3/squid.conf
+request_header_access All deny all
+
+viavia off
+forwarded_for off' >> /etc/squid3/squid.conf
 rm squidconf
