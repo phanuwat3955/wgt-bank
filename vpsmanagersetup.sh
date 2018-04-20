@@ -1,8 +1,8 @@
 #!/bin/bash
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-20s\n' "VPS Manager 2.0.1" ; tput sgr0
 tput setaf 3 ; tput bold ; echo "" ; echo "Este script irá:" ; echo ""
-echo "● Instalar e configurar o proxy squid nas portas 80, 3128, 8080 e 8799" ; echo "  para permitir conexões SSH para este servidor"
-echo "● Configurar o OpenSSH para rodar nas portas 22 e 443"
+echo "● Instalar e configurar o proxy squid nas portas 81, 3128, 8080 e 8000" ; echo "  para permitir conexões SSH para este servidor"
+echo "● Configurar o OpenSSH para rodar nas portas 22 e 143"
 echo "● Instalar um conjunto de scripts como comandos do sistema para o gerenciamento de usuários" ; tput sgr0
 echo ""
 tput setaf 3 ; tput bold ; read -n 1 -s -p "Aperte qualquer tecla para continuar..." ; echo "" ; echo "" ; tput sgr0
@@ -73,41 +73,41 @@ apt-get install squid3 bc screen nano unzip dos2unix wget -y
 killall apache2
 apt-get purge apache2 -y
 if [ -f "/usr/sbin/ufw" ] ; then
-	ufw allow 443/tcp ; ufw allow 80/tcp ; ufw allow 3128/tcp ; ufw allow 8799/tcp ; ufw allow 8080/tcp
+	ufw allow 143/tcp ; ufw allow 81/tcp ; ufw allow 3128/tcp ; ufw allow 8000/tcp ; ufw allow 8080/tcp
 fi
 if [ -d "/etc/squid3/" ]
 then
-	wget http://phreaker56.xyz/vpsmanager/squid1.txt -O /tmp/sqd1
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/squid1.txt -O /tmp/sqd1
 	echo "acl url3 dstdomain -i $ipdovps" > /tmp/sqd2
-	wget http://phreaker56.xyz/vpsmanager/squid2.txt -O /tmp/sqd3
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/squid2.txt -O /tmp/sqd3
 	cat /tmp/sqd1 /tmp/sqd2 /tmp/sqd3 > /etc/squid3/squid.conf
-	wget http://phreaker56.xyz/vpsmanager/payload.txt -O /etc/squid3/payload.txt
+        wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/payload.txt -O /etc/squid3/payload.txt
 	echo " " >> /etc/squid3/payload.txt
-	grep -v "^Port 443" /etc/ssh/sshd_config > /tmp/ssh && mv /tmp/ssh /etc/ssh/sshd_config
-	echo "Port 443" >> /etc/ssh/sshd_config
+	grep -v "^Port 143" /etc/ssh/sshd_config > /tmp/ssh && mv /tmp/ssh /etc/ssh/sshd_config
+	echo "Port 143" >> /etc/ssh/sshd_config
 	grep -v "^PasswordAuthentication yes" /etc/ssh/sshd_config > /tmp/passlogin && mv /tmp/passlogin /etc/ssh/sshd_config
 	echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
-	wget http://phreaker56.xyz/vpsmanager/scripts/addhost.sh -O /bin/addhost
+        wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/addhost.sh -O /bin/addhost
 	chmod +x /bin/addhost
-	wget http://phreaker56.xyz/vpsmanager/scripts/alterarsenha.sh -O /bin/alterarsenha
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/alterarsenha.sh -O /bin/alterarsenha
 	chmod +x /bin/alterarsenha
 	wget http://phreaker56.xyz/vpsmanager/scripts/criarusuario2.sh -O /bin/criarusuario
 	chmod +x /bin/criarusuario
-	wget http://phreaker56.xyz/vpsmanager/scripts/delhost.sh -O /bin/delhost
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/delhost.sh -O /bin/delhost
 	chmod +x /bin/delhost
-	wget http://phreaker56.xyz/vpsmanager/scripts/expcleaner2.sh -O /bin/expcleaner
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/expcleaner2.sh -O /bin/expcleaner
 	chmod +x /bin/expcleaner
-	wget http://phreaker56.xyz/vpsmanager/scripts/mudardata.sh -O /bin/mudardata
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/mudardata.sh -O /bin/mudardata
 	chmod +x /bin/mudardata
-	wget http://phreaker56.xyz/vpsmanager/scripts/remover.sh -O /bin/remover
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/remover.sh -O /bin/remover
 	chmod +x /bin/remover
-	wget http://phreaker56.xyz/vpsmanager/scripts/sshlimiter2.sh -O /bin/sshlimiter
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/sshlimiter2.sh -O /bin/sshlimiter
 	chmod +x /bin/sshlimiter
-	wget http://phreaker56.xyz/vpsmanager/scripts/alterarlimite.sh -O /bin/alterarlimite
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/alterarlimite.sh -O /bin/alterarlimite
 	chmod +x /bin/alterarlimite
-	wget http://phreaker56.xyz/vpsmanager/scripts/ajuda.sh -O /bin/ajuda
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/ajuda.sh -O /bin/ajuda
 	chmod +x /bin/ajuda
-	wget http://phreaker56.xyz/vpsmanager/scripts/sshmonitor2.sh -O /bin/sshmonitor
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/sshmonitor2.sh -O /bin/sshmonitor
 	chmod +x /bin/sshmonitor
 	if [ ! -f "/etc/init.d/squid3" ]
 	then
@@ -124,37 +124,37 @@ then
 fi
 if [ -d "/etc/squid/" ]
 then
-	wget http://phreaker56.xyz/vpsmanager/squid1.txt -O /tmp/sqd1
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/squid1.txt -O /tmp/sqd1
 	echo "acl url3 dstdomain -i $ipdovps" > /tmp/sqd2
-	wget http://phreaker56.xyz/vpsmanager/squid.txt -O /tmp/sqd3
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/squid.txt -O /tmp/sqd3
 	cat /tmp/sqd1 /tmp/sqd2 /tmp/sqd3 > /etc/squid/squid.conf
-	wget http://phreaker56.xyz/vpsmanager/payload.txt -O /etc/squid/payload.txt
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/payload.txt -O /etc/squid/payload.txt
 	echo " " >> /etc/squid/payload.txt
-	grep -v "^Port 443" /etc/ssh/sshd_config > /tmp/ssh && mv /tmp/ssh /etc/ssh/sshd_config
-	echo "Port 443" >> /etc/ssh/sshd_config
+	grep -v "^Port 143" /etc/ssh/sshd_config > /tmp/ssh && mv /tmp/ssh /etc/ssh/sshd_config
+	echo "Port 143" >> /etc/ssh/sshd_config
 	grep -v "^PasswordAuthentication yes" /etc/ssh/sshd_config > /tmp/passlogin && mv /tmp/passlogin /etc/ssh/sshd_config
 	echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
-	wget http://phreaker56.xyz/vpsmanager/scripts/2/addhost.sh -O /bin/addhost
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/2/addhost.sh -O /bin/addhost
 	chmod +x /bin/addhost
-	wget http://phreaker56.xyz/vpsmanager/scripts/alterarsenha.sh -O /bin/alterarsenha
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/alterarsenha.sh -O /bin/alterarsenha
 	chmod +x /bin/alterarsenha
-	wget http://phreaker56.xyz/vpsmanager/scripts/criarusuario2.sh -O /bin/criarusuario
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/criarusuario2.sh -O /bin/criarusuario
 	chmod +x /bin/criarusuario
-	wget http://phreaker56.xyz/vpsmanager/scripts/2/delhost.sh -O /bin/delhost
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/2/delhost.sh -O /bin/delhost
 	chmod +x /bin/delhost
-	wget http://phreaker56.xyz/vpsmanager/scripts/expcleaner2.sh -O /bin/expcleaner
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/expcleaner2.sh -O /bin/expcleaner
 	chmod +x /bin/expcleaner
 	wget http://phreaker56.xyz/vpsmanager/scripts/mudardata.sh -O /bin/mudardata
 	chmod +x /bin/mudardata
-	wget http://phreaker56.xyz/vpsmanager/scripts/remover.sh -O /bin/remover
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/remover.sh -O /bin/remover
 	chmod +x /bin/remover
-	wget http://phreaker56.xyz/vpsmanager/scripts/sshlimiter2.sh -O /bin/sshlimiter
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/sshlimiter2.sh -O /bin/sshlimiter
 	chmod +x /bin/sshlimiter
-	wget http://phreaker56.xyz/vpsmanager/scripts/alterarlimite.sh -O /bin/alterarlimite
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/alterarlimite.sh -O /bin/alterarlimite
 	chmod +x /bin/alterarlimite
-	wget http://phreaker56.xyz/vpsmanager/scripts/ajuda.sh -O /bin/ajuda
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/ajuda.sh -O /bin/ajuda
 	chmod +x /bin/ajuda
-	wget http://phreaker56.xyz/vpsmanager/scripts/sshmonitor2.sh -O /bin/sshmonitor
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/sshmonitor2.sh -O /bin/sshmonitor
 	chmod +x /bin/sshmonitor
 	if [ ! -f "/etc/init.d/squid" ]
 	then
@@ -170,8 +170,8 @@ then
 	fi
 fi
 echo ""
-tput setaf 7 ; tput setab 4 ; tput bold ; echo "Proxy Squid Instalado e rodando nas portas: 80, 3128, 8080 e 8799" ; tput sgr0
-tput setaf 7 ; tput setab 4 ; tput bold ; echo "OpenSSH rodando nas portas 22 e 443" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; echo "Proxy Squid Instalado e rodando nas portas: 81, 3128, 8080 e 8000" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; echo "OpenSSH rodando nas portas 22 e 143" ; tput sgr0
 tput setaf 7 ; tput setab 4 ; tput bold ; echo "Scripts para gerenciamento de usuário instalados" ; tput sgr0
 tput setaf 7 ; tput setab 4 ; tput bold ; echo "Leia a documentação para evitar dúvidas e problemas!" ; tput sgr0
 tput setaf 7 ; tput setab 4 ; tput bold ; echo "Para ver os comandos disponíveis use o comando: ajuda" ; tput sgr0
