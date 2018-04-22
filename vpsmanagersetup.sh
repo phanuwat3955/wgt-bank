@@ -144,7 +144,7 @@ then
 	chmod +x /bin/delhost
 	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/expcleaner2.sh -O /bin/expcleaner
 	chmod +x /bin/expcleaner
-	wget http://phreaker56.xyz/vpsmanager/scripts/mudardata.sh -O /bin/mudardata
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/mudardata.sh -O /bin/mudardata
 	chmod +x /bin/mudardata
 	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/remover.sh -O /bin/remover
 	chmod +x /bin/remover
