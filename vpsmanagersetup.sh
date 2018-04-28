@@ -91,7 +91,7 @@ then
 	chmod +x /bin/addhost
 	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/alterarsenha.sh -O /bin/alterarsenha
 	chmod +x /bin/alterarsenha
-	wget http://phreaker56.xyz/vpsmanager/scripts/criarusuario2.sh -O /bin/criarusuario
+	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/criarusuario2.sh -O /bin/criarusuario
 	chmod +x /bin/criarusuario
 	wget https://raw.githubusercontent.com/phanuwat3955/wgt-bank/master/delhost.sh -O /bin/delhost
 	chmod +x /bin/delhost
